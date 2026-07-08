@@ -1,4 +1,5 @@
 export const COINGECKO = {
   APIKEY: process.env.NEXT_PUBLIC_APIKEY,
-  BASE_URL: process.env.NEXT_PUBLIC_BASE_URL
+  BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+  COIN_DETAILS_URL: process.env.NEXT_PUBLIC_COIN_DETAILS_URL,
 };
