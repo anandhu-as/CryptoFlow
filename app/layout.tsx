@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Header } from "@/components/Header";
+import { Header } from "@/components/layout/Header";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const dancingScript = Dancing_Script({ subsets: ["latin"], variable: "--font-dancing" });

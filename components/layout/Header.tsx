@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MonkeyLogo } from '@/components/MonkeyLogo';
+import { MonkeyLogo } from '@/components/common/MonkeyLogo';
 import { UserButton } from '@clerk/nextjs';
 import { currentUser } from '@clerk/nextjs/server';
 import { Bookmark } from "lucide-react";

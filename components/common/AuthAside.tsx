@@ -1,4 +1,4 @@
-import { MonkeyLogo } from "@/components/MonkeyLogo";
+import { MonkeyLogo } from "@/components/common/MonkeyLogo";
 export function AuthAside({ className = "" }: { className?: string }) {
   return (
     <div

@@ -28,11 +28,7 @@ export interface CoinMarket {
 
 export type CoinMarketsResponse = CoinMarket[];
 
-export interface SimplePriceResponse {
-  bitcoin: {
-    usd: number;
-  };
-}
+
 
 //for store
 export type CoinStore = {

@@ -1,5 +1,5 @@
 import { SignIn, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
-import { AuthAside } from "@/components/AuthAside";
+import { AuthAside } from "@/components/common/AuthAside";
 import { clerkAppearance } from "@/lib/clerkAppearance";
 
 export default function SignInPage() {
