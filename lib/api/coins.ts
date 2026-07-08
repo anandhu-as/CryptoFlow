@@ -12,6 +12,8 @@ export async function fetchCoinMarkets(): Promise<CoinMarketsResponse> {
       next: { revalidate: 60 },
     }
   );
+//for 1 sec loading time
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
   return res.json();
