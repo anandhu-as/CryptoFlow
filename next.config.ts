@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  turbopack: {
+    root: "C:/Users/anand/Desktop/cryptoflow",
+  },
 };
 
 export default nextConfig;
