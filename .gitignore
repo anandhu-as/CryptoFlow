@@ -47,3 +47,6 @@ coverage/
 # Cache
 .cache/
 .turbo/
+/lib/generated/prisma
+
+/lib/generated/prisma
