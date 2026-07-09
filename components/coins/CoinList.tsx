@@ -3,8 +3,10 @@ import { useCoins } from "@/hooks/useCoin";
 import { Bookmark } from "lucide-react";
 import { Loader } from "../common/coinCardSkelton";
 import { useRouter } from "next/navigation";
+import React from "react";
+import { addToWatchlist } from "@/actions/watchlist";
 
-export function CoinList() {
+export const CoinList = () => {
 
   //for navigating to coin/id
   const router = useRouter();
@@ -12,7 +14,15 @@ export function CoinList() {
 
   status === "loading" && <Loader />;
   status === "error" && <p>Error: {error}</p>;
-
+  const handleAddToWatchList = async (event: React.MouseEvent, coin: typeof coins[0]) => {
+    event.stopPropagation()
+    await addToWatchlist({
+      coinId: coin.id,
+      coinName: coin.name,
+      coinImage: coin.image,
+      symbol: coin.symbol,
+    })
+  }
 
   return (
     <div className="flex flex-col gap-4 p-4">
@@ -55,7 +65,7 @@ export function CoinList() {
             </div>
             <button
               className="w-full mt-2 py-1.5 px-3 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 text-xs font-semibold rounded-lg transition-colors relative z-10 flex items-center justify-center gap-1.5"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(event) => handleAddToWatchList(event, coin)}
             >
               <Bookmark className="w-3.5 h-3.5" />
               <span>Add to Watchlist</span>
