@@ -10,9 +10,9 @@ export function CoinList() {
   const router = useRouter();
   const { coins, status, error } = useCoins();
 
-  if (status === "loading") return <Loader />;
-  if (status === "error") return <p>Error: {error}</p>;
-  if (status === "idle") return null;
+  status === "loading" && <Loader />;
+  status === "error" && <p>Error: {error}</p>;
+
 
   return (
     <div className="flex flex-col gap-4 p-4">
