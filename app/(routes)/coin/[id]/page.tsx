@@ -1,6 +1,6 @@
 import { CoinChart } from "@/components/coins/coinChart";
 import CoinDetail from "@/components/coins/CoinDetail";
-import { fetchCoinById, fetchCoinChart } from "@/hooks/useGetCoin";
+import { fetchCoinById, fetchCoinChart } from "@/lib/api/coin";
 const CoinPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   const coin = await fetchCoinById(id);
