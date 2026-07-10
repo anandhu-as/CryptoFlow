@@ -3,7 +3,7 @@ import { useCoins } from "@/hooks/useCoin";
 import { Bookmark } from "lucide-react";
 import { Loader } from "../common/coinCardSkelton";
 import { useRouter } from "next/navigation";
-import React from "react";
+
 import { useWatchList } from "@/hooks/useWatchList";
 export const CoinList = () => {
   const router = useRouter();

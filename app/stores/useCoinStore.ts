@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { fetchCoinMarkets } from "@/lib/api/coins";
+import { fetchCoinMarkets } from "@/lib/api/markets";
 import { CoinStore } from "@/types/types";
 export const useCoinStore = create<CoinStore>((set) => ({
   coins: [],

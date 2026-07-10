@@ -146,7 +146,7 @@
     animation: shimmer 2s infinite;
   }
 
-  /* Terminal: orchestrated row reveal on load */
+
   @keyframes row-in {
     0% {
       opacity: 0;
@@ -162,7 +162,7 @@
     animation: row-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  /* Terminal: subtle "live tick" flash on a price cell */
+  
   @keyframes flash-up {
     0%,
     92%,
@@ -190,7 +190,7 @@
     animation: flash-down 6.5s ease-in-out infinite;
   }
 
-  /* Terminal: faint scanline sweeping the market panel */
+
   @keyframes scan {
     0% {
       transform: translateY(-120%);
@@ -203,7 +203,7 @@
     animation: scan 7s linear infinite;
   }
 
-  /* Blinking cursor for the wordmark */
+  
   @keyframes caret {
     0%,
     49% {
