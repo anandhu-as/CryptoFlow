@@ -5,16 +5,12 @@ import { Loader } from "../common/coinCardSkelton";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useWatchList } from "@/hooks/useWatchList";
-
 export const CoinList = () => {
-
   const router = useRouter();
   const { coins, status, error } = useCoins();
   const { handleWatchList } = useWatchList();
-
   if (status === "loading") return <Loader />;
   if (status === "error") return <p>Error: {error}</p>;
-
   return (
     <div className="flex flex-col gap-4 p-4">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
