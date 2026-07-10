@@ -9,6 +9,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CoinDetail = (coin: any) => {
   const isPositive = coin.price_change_percentage_24h > 0;
   return (

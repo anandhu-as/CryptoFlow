@@ -9,12 +9,12 @@ datasource db {
 
 model Watchlist {
   id        String   @id @default(cuid())
-  userId    String // Clerk user ID
-  coinId    String // e.g. "bitcoin" from CoinGecko
+  userId    String
+  coinId    String
   coinName  String
   coinImage String
   symbol    String
   addedAt   DateTime @default(now())
 
-  @@unique([userId, coinId]) // prevent duplicate entries
+  @@unique([userId, coinId])
 }

@@ -51,8 +51,8 @@ export function CoinChart({ chartData }: { chartData: ChartPoint[] }) {
             axisLine={false}
           />
           <Tooltip
-            formatter={(value: any) => [`$${Number(value).toLocaleString()}`, "Price"]}
-            labelFormatter={(label: any) => new Date(label).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}
+            formatter={(value) => [`$${Number(value).toLocaleString()}`, "Price"]}
+            labelFormatter={(label) => new Date(label as string | number).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}
             contentStyle={{
               backgroundColor: "rgba(24, 24, 27, 0.8)",
               border: "1px solid rgba(63, 63, 70, 0.5)",

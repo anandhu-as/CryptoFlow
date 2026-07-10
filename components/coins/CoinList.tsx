@@ -8,12 +8,11 @@ import { addToWatchlist } from "@/actions/watchlist";
 
 export const CoinList = () => {
 
-  //for navigating to coin/id
   const router = useRouter();
   const { coins, status, error } = useCoins();
 
-  status === "loading" && <Loader />;
-  status === "error" && <p>Error: {error}</p>;
+  if (status === "loading") return <Loader />;
+  if (status === "error") return <p>Error: {error}</p>;
   const handleAddToWatchList = async (event: React.MouseEvent, coin: typeof coins[0]) => {
     event.stopPropagation()
     await addToWatchlist({
@@ -48,19 +47,19 @@ export const CoinList = () => {
             </div>
             <div className="flex flex-col items-center mt-1 w-full pt-3 border-t border-zinc-100 dark:border-zinc-800">
               <span className="text-lg font-semibold text-zinc-800 dark:text-zinc-200">
-                ${coin.current_price.toLocaleString(undefined, {
+                ${coin.current_price?.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 6,
-                })}
+                }) || "0.00"}
               </span>
               <span
-                className={`text-xs font-medium px-2 py-0.5 rounded-full mt-1.5 ${coin.price_change_percentage_24h > 0
+                className={`text-xs font-medium px-2 py-0.5 rounded-full mt-1.5 ${(coin.price_change_percentage_24h || 0) > 0
                   ? "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400"
                   : "bg-red-100 text-red-700 dark:bg-red-500/10 dark:text-red-400"
                   }`}
               >
-                {coin.price_change_percentage_24h > 0 ? "+" : ""}
-                {coin.price_change_percentage_24h.toFixed(2)}%
+                {(coin.price_change_percentage_24h || 0) > 0 ? "+" : ""}
+                {(coin.price_change_percentage_24h || 0).toFixed(2)}%
               </span>
             </div>
             <button
