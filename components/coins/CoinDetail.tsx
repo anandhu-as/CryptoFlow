@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -7,10 +9,14 @@ import {
   BarChart3,
   ChevronUp,
   ChevronDown,
-} from "lucide-react";
+  Bookmark,
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+} from "lucide-react";
+import { Button } from "../ui/button";
+import { useWatchList } from "@/hooks/useWatchList";
+
 const CoinDetail = (coin: any) => {
+  const { handleWatchList } = useWatchList()
   const isPositive = coin.price_change_percentage_24h > 0;
   return (
     <>
@@ -24,8 +30,7 @@ const CoinDetail = (coin: any) => {
 
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 md:p-8 shadow-sm border border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-
-        <div className="flex items-center gap-5 relative z-10">
+        <div className="flex items-center gap-5 relative z-10 w-full md:w-auto">
           <img
             src={coin.image}
             alt={coin.name}
@@ -52,17 +57,16 @@ const CoinDetail = (coin: any) => {
           </div>
           <div className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tighter">
             $
-            {coin.current_price?.toLocaleString(undefined, {
+            {coin.current_price?.toLocaleString("en-US", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 6,
             })}
           </div>
           <div
-            className={`flex items-center gap-1.5 mt-2 font-semibold text-sm px-3 py-1 rounded-full ${
-              isPositive
-                ? "bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-400"
-                : "bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-400"
-            }`}
+            className={`flex items-center gap-1.5 mt-2 font-semibold text-sm px-3 py-1 rounded-full ${isPositive
+              ? "bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-400"
+              : "bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-400"
+              }`}
           >
             {isPositive ? (
               <TrendingUp className="w-4 h-4" />
@@ -74,6 +78,9 @@ const CoinDetail = (coin: any) => {
               {coin.price_change_percentage_24h?.toFixed(2)}%
             </span>
           </div>
+          <Button onClick={(event) => handleWatchList(event, coin)} className="mt-6 rounded-full font-semibold gap-2 px-6 shadow-md hover:shadow-lg transition-all w-full md:w-auto bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-100 dark:text-zinc-900">
+            <Bookmark className="w-4 h-4" /> Add to Watchlist
+          </Button>
         </div>
       </div>
 
@@ -88,7 +95,7 @@ const CoinDetail = (coin: any) => {
             </div>
           </div>
           <p className="text-xl font-bold text-zinc-900 dark:text-white">
-            ${coin.market_cap?.toLocaleString()}
+            ${coin.market_cap?.toLocaleString("en-US")}
           </p>
         </div>
 
@@ -102,7 +109,7 @@ const CoinDetail = (coin: any) => {
             </div>
           </div>
           <p className="text-xl font-bold text-zinc-900 dark:text-white">
-            ${coin.total_volume?.toLocaleString()}
+            ${coin.total_volume?.toLocaleString("en-US")}
           </p>
         </div>
 
@@ -117,7 +124,7 @@ const CoinDetail = (coin: any) => {
           </div>
           <p className="text-xl font-bold text-zinc-900 dark:text-white">
             $
-            {coin.high_24h?.toLocaleString(undefined, {
+            {coin.high_24h?.toLocaleString("en-US", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 6,
             })}
@@ -135,7 +142,7 @@ const CoinDetail = (coin: any) => {
           </div>
           <p className="text-xl font-bold text-zinc-900 dark:text-white">
             $
-            {coin.low_24h?.toLocaleString(undefined, {
+            {coin.low_24h?.toLocaleString("en-US", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 6,
             })}

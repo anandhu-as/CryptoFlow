@@ -37,3 +37,7 @@ export type CoinStore = {
   error: string | null;
   fetchCoins: () => Promise<void>;
 };
+
+
+//chart points
+export type ChartPoint = { date: number; price: number };
