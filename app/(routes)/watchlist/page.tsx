@@ -2,8 +2,6 @@ import { getWatchlist } from "@/actions/watchlist";
 
 export default async function Page() {
   const list = await getWatchlist();
-  console.log(list);
-
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">My Watchlist</h1>
