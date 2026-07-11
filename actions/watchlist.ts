@@ -24,7 +24,7 @@ export const addToWatchlist = async (coin: {
     },
   });
 };
-export async function getWatchlist() {
+export const getWatchlist = async () => {
   const { userId } = await auth();
 
   if (!userId) return [];
@@ -33,4 +33,4 @@ export async function getWatchlist() {
     where: { userId },
     orderBy: { addedAt: "desc" },
   });
-}
+};

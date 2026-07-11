@@ -12,7 +12,7 @@ const Page = async () => {
           My Watchlist
         </h1>
       </div>
-      
+
       {list.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-24 px-6 text-center bg-gray-50/50 border border-dashed border-gray-200 rounded-3xl">
           <Bookmark className="w-12 h-12 text-gray-300 mb-4" />
@@ -47,7 +47,7 @@ const Page = async () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <Link
                   href={`/coin/${coin.coinId}`}
