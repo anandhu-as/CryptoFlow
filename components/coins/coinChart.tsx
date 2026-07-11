@@ -7,6 +7,7 @@ import { formatChartData } from "@/utils/charts";
 const CoinChart = ({ chartData }: { chartData: ChartPoint[] }) => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
   const { formattedData, ticks } = formatChartData(chartData);

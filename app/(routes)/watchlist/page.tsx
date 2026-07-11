@@ -1,10 +1,10 @@
 import { getWatchlist } from "@/actions/watchlist";
 import Link from "next/link";
-import { Trash2, ChevronRight, Bookmark } from "lucide-react";
-
+import { ChevronRight, Bookmark } from "lucide-react";
+import Image from "next/image";
+import { RemoveWatchlistButton } from "@/components/RemoveWatchlistButton";
 const Page = async () => {
   const list = await getWatchlist();
-
   return (
     <div className="max-w-5xl mx-auto p-6 lg:p-10">
       <div className="flex items-center justify-between mb-8">
@@ -12,7 +12,6 @@ const Page = async () => {
           My Watchlist
         </h1>
       </div>
-
       {list.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-24 px-6 text-center bg-gray-50/50 border border-dashed border-gray-200 rounded-3xl">
           <Bookmark className="w-12 h-12 text-gray-300 mb-4" />
@@ -29,11 +28,13 @@ const Page = async () => {
               className="group flex flex-col sm:flex-row sm:items-center justify-between gap-6 bg-white border border-gray-200/60 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300"
             >
               <div className="flex items-center gap-4">
-                <div className="relative">
-                  <img
+                <div className="relative w-12 h-12">
+                  <Image
                     src={coin.coinImage}
                     alt={coin.coinName}
-                    className="w-12 h-12 rounded-full ring-2 ring-gray-50 object-cover"
+                    fill
+                    sizes="48px"
+                    className="rounded-full ring-2 ring-gray-50 object-cover"
                   />
                 </div>
                 <div>
@@ -56,13 +57,7 @@ const Page = async () => {
                   View Details
                   <ChevronRight className="w-4 h-4" />
                 </Link>
-                <button
-                  type="button"
-                  className="flex items-center justify-center w-11 h-11 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
-                  title="Remove from watchlist"
-                >
-                  <Trash2 className="w-5 h-5" />
-                </button>
+                <RemoveWatchlistButton coinId={coin.coinId} />
               </div>
             </div>
           ))}

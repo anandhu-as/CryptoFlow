@@ -10,14 +10,16 @@ import {
   ChevronUp,
   ChevronDown,
   Bookmark,
-
 } from "lucide-react";
+import Image from "next/image";
+import { CoinMarket } from "@/types/types";
 import { Button } from "../ui/button";
 import { useWatchList } from "@/hooks/useWatchList";
 
-const CoinDetail = (coin: any) => {
-  const { handleWatchList } = useWatchList()
+const CoinDetail = (coin: CoinMarket) => {
+  const { handleWatchList, watchlist } = useWatchList()
   const isPositive = coin.price_change_percentage_24h > 0;
+  const isWatchlisted = watchlist.some((item) => item.coinId === coin.id);
   return (
     <>
       <Link
@@ -31,11 +33,15 @@ const CoinDetail = (coin: any) => {
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 md:p-8 shadow-sm border border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
         <div className="flex items-center gap-5 relative z-10 w-full md:w-auto">
-          <img
-            src={coin.image}
-            alt={coin.name}
-            className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-md"
-          />
+          <div className="relative w-16 h-16 md:w-20 md:h-20 drop-shadow-md">
+            <Image
+              src={coin.image}
+              alt={coin.name}
+              fill
+              sizes="(max-width: 768px) 64px, 80px"
+              className="object-contain"
+            />
+          </div>
           <div>
             <div className="flex items-center gap-3">
               <h1 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">
@@ -78,8 +84,12 @@ const CoinDetail = (coin: any) => {
               {coin.price_change_percentage_24h?.toFixed(2)}%
             </span>
           </div>
-          <Button onClick={(event) => handleWatchList(event, coin)} className="mt-6 rounded-full font-semibold gap-2 px-6 shadow-md hover:shadow-lg transition-all w-full md:w-auto bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-100 dark:text-zinc-900">
-            <Bookmark className="w-4 h-4" /> Add to Watchlist
+          <Button onClick={(event) => handleWatchList(event, coin)} className={`mt-6 rounded-full font-semibold gap-2 px-6 shadow-md hover:shadow-lg transition-all w-full md:w-auto ${
+            isWatchlisted
+              ? "bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/40 dark:hover:bg-blue-900/60 dark:text-blue-400"
+              : "bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-100 dark:text-zinc-900"
+          }`}>
+            <Bookmark className={`w-4 h-4 ${isWatchlisted ? "fill-current" : ""}`} /> {isWatchlisted ? "Remove from Watchlist" : "Add to Watchlist"}
           </Button>
         </div>
       </div>

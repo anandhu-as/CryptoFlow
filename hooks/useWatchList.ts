@@ -1,17 +1,53 @@
-import { addToWatchlist, getWatchlist } from "@/actions/watchlist";
+import {
+  addToWatchlist,
+  getWatchlist as fetchWatchlist,
+  removeFromWatchList,
+} from "@/actions/watchlist";
 import { CoinMarket } from "@/types/types";
-import React from "react";
+import { Watchlist } from "@prisma/client";
+import React, { useState, useEffect } from "react";
 
 export const useWatchList = () => {
+  const [watchlist, setWatchlist] = useState<Watchlist[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  const getWatchlist = async () => {
+    try {
+      const data = await fetchWatchlist();
+      setWatchlist(data);
+    } catch (error) {
+      console.error("Failed to fetch watchlist", error);
+    }
+  };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    getWatchlist();
+  }, []);
+
   const handleWatchList = async (event: React.MouseEvent, coin: CoinMarket) => {
     event.stopPropagation();
-    await addToWatchlist({
-      coinId: coin.id,
-      coinName: coin.name,
-      coinImage: coin.image,
-      symbol: coin.symbol,
-    });
-    await getWatchlist();
+    try {
+      setLoading(true);
+      const isWatchlisted = watchlist.some((item) => item.coinId === coin.id);
+      
+      if (isWatchlisted) {
+        await removeFromWatchList(coin.id);
+      } else {
+        await addToWatchlist({
+          coinId: coin.id,
+          coinName: coin.name,
+          coinImage: coin.image,
+          symbol: coin.symbol,
+        });
+      }
+      await getWatchlist();
+    } catch (error) {
+      console.error("Failed to update watchlist", error);
+    } finally {
+      setLoading(false);
+    }
   };
-  return { handleWatchList ,getWatchlist};
+
+  return { handleWatchList, watchlist, loading, getWatchlist ,removeFromWatchList};
 };
