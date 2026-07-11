@@ -2,7 +2,6 @@
 
 import { prisma } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
-
 export const addToWatchlist = async (coin: {
   coinId: string;
   coinName: string;

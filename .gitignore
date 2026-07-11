@@ -1,44 +1,41 @@
-# Ignore everything
-*
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Allow these folders
-!app/
-!components/
-!config/
-!hooks/
-!lib/
-!prisma/
-!stores/
-!types/
-!utils/
-!actions/
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Include all files inside allowed folders
-!app/**
-!components/**
-!config/**
-!hooks/**
-!lib/**
-!prisma/**
-!stores/**
-!types/**
-!utils/**
-!actions/**
+# testing
+/coverage
 
-# Allow these root files
-!.gitignore
-!package.json
-!package-lock.json
-!next.config.ts
-!tsconfig.json
-!eslint.config.mjs
-!next-env.d.ts
-!README.md
+# next.js
+/.next/
+/out/
 
+# production
+/build
 
-node_modules/
-.next/
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env*.local
 .env
-.env.*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# output
 output.txt
 .vscode/

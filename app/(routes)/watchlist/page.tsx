@@ -1,26 +1,68 @@
 import { getWatchlist } from "@/actions/watchlist";
+import Link from "next/link";
+import { Trash2, ChevronRight, Bookmark } from "lucide-react";
+
 const Page = async () => {
   const list = await getWatchlist();
+
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">My Watchlist 🛒</h1>
+    <div className="max-w-5xl mx-auto p-6 lg:p-10">
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
+          My Watchlist
+        </h1>
+      </div>
+      
       {list.length === 0 ? (
-        <p>No coins in your watchlist.</p>
+        <div className="flex flex-col items-center justify-center py-24 px-6 text-center bg-gray-50/50 border border-dashed border-gray-200 rounded-3xl">
+          <Bookmark className="w-12 h-12 text-gray-300 mb-4" />
+          <h3 className="text-xl font-semibold text-gray-900">Your watchlist is empty</h3>
+          <p className="text-gray-500 mt-2 max-w-sm">
+            Keep track of your favorite cryptocurrencies. Add some coins to get started.
+          </p>
+        </div>
       ) : (
-        <div className="space-y-4">
+        <div className="grid gap-4">
           {list.map((coin) => (
             <div
               key={coin.id}
-              className="flex items-center gap-4 border rounded-lg p-4"
+              className="group flex flex-col sm:flex-row sm:items-center justify-between gap-6 bg-white border border-gray-200/60 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300"
             >
-              <img
-                src={coin.coinImage}
-                alt={coin.coinName}
-                className="w-10 h-10"
-              />
-              <div>
-                <h2 className="font-semibold">{coin.coinName}</h2>
-                <p className="text-gray-500 uppercase">{coin.symbol}</p>
+              <div className="flex items-center gap-4">
+                <div className="relative">
+                  <img
+                    src={coin.coinImage}
+                    alt={coin.coinName}
+                    className="w-12 h-12 rounded-full ring-2 ring-gray-50 object-cover"
+                  />
+                </div>
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900 leading-tight">
+                    {coin.coinName}
+                  </h2>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                      {coin.symbol}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3 w-full sm:w-auto">
+                <Link
+                  href={`/coin/${coin.coinId}`}
+                  className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-blue-700 bg-blue-50/80 hover:bg-blue-100 rounded-xl transition-colors"
+                >
+                  View Details
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+                <button
+                  type="button"
+                  className="flex items-center justify-center w-11 h-11 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
+                  title="Remove from watchlist"
+                >
+                  <Trash2 className="w-5 h-5" />
+                </button>
               </div>
             </div>
           ))}
@@ -29,4 +71,5 @@ const Page = async () => {
     </div>
   );
 }
-export default Page
+
+export default Page;
