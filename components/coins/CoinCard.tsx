@@ -1,14 +1,9 @@
 import { Bookmark } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { CoinMarket } from "@/types/types";
+import { CoinCardProps, CoinMarket } from "@/types/types";
 import React from 'react';
 
-interface CoinCardProps {
-    coin: CoinMarket;
-    isWatchlisted: boolean;
-    handleWatchList: (event: React.MouseEvent, coin: CoinMarket) => void;
-}
 
 const CoinCard = ({ coin, isWatchlisted, handleWatchList }: CoinCardProps) => {
     const router = useRouter();

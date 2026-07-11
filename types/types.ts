@@ -41,3 +41,10 @@ export type CoinStore = {
 
 //chart points
 export type ChartPoint = { date: number; price: number };
+
+
+export interface CoinCardProps {
+  coin: CoinMarket;
+  isWatchlisted: boolean;
+  handleWatchList: (event: React.MouseEvent, coin: CoinMarket) => void;
+}
