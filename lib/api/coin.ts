@@ -13,7 +13,7 @@ export const fetchCoinById = async (id: string) => {
 ///date and price
 export const fetchCoinChart = async (id: string) => {
   const res = await fetch(
-    `${COINGECKO.CHART_URL}${id}/market_chart?vs_currency=usd&days=7`,
+    `${COINGECKO.CHART_URL}${id}/market_chart?vs_currency=inr&days=7`,
     {
       headers: {
         "x-cg-demo-api-key": COINGECKO.APIKEY!,
