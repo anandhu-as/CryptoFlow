@@ -31,7 +31,7 @@ const CoinCard = ({ coin, isWatchlisted, handleWatchList }: CoinCardProps) => {
       <div className="flex flex-col items-center w-full pt-2 mt-1 border-t border-zinc-100 dark:border-zinc-800">
         <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200">
           ₹
-          {coin.current_price?.toLocaleString(undefined, {
+          {coin.current_price?.toLocaleString("en-IN", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 6,
           }) || "0.00"}

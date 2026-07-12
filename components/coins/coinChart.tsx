@@ -85,13 +85,13 @@ const CoinChart = ({ chartData }: { chartData: ChartPoint[] }) => {
               axisLine={false}
               tick={{ fontSize: 12, fill: "#71717a" }}
               tickFormatter={(value) =>
-                `₹${Number(value).toLocaleString("en-US")}`
+                `₹${Number(value).toLocaleString("en-IN")}`
               }
             />
 
             <Charts.Tooltip
               formatter={(value) => [
-                `₹${Number(value ?? 0).toLocaleString("en-US")}`,
+                `₹${Number(value ?? 0).toLocaleString("en-IN")}`,
                 "Price",
               ]}
               labelFormatter={(label) =>

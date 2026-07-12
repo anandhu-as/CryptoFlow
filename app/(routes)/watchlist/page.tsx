@@ -53,6 +53,13 @@ const Page = async () => {
                     <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-md uppercase tracking-wider">
                       {coin.symbol}
                     </span>
+                    <span className="text-sm font-bold text-gray-700 ml-2">
+                      ₹{" "}
+                      {coin.coinPrice?.toLocaleString("en-IN", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 6,
+                      }) || "0.00"}
+                    </span>
                   </div>
                 </div>
               </div>

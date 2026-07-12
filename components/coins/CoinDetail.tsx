@@ -61,7 +61,7 @@ const CoinDetail = (coin: CoinMarket) => {
           </div>
           <div className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tighter">
             ₹
-            {coin.current_price?.toLocaleString("en-US", {
+            {coin.current_price?.toLocaleString("en-IN", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 6,
             })}
@@ -110,7 +110,7 @@ const CoinDetail = (coin: CoinMarket) => {
             </div>
           </div>
           <p className="text-xl font-bold text-zinc-900 dark:text-white">
-            ₹{coin.market_cap?.toLocaleString("en-US")}
+            ₹{coin.market_cap?.toLocaleString("en-IN")}
           </p>
         </div>
 
@@ -124,7 +124,7 @@ const CoinDetail = (coin: CoinMarket) => {
             </div>
           </div>
           <p className="text-xl font-bold text-zinc-900 dark:text-white">
-            ₹{coin.total_volume?.toLocaleString("en-US")}
+            ₹{coin.total_volume?.toLocaleString("en-IN")}
           </p>
         </div>
 
@@ -139,7 +139,7 @@ const CoinDetail = (coin: CoinMarket) => {
           </div>
           <p className="text-xl font-bold text-zinc-900 dark:text-white">
             ₹
-            {coin.high_24h?.toLocaleString("en-US", {
+            {coin.high_24h?.toLocaleString("en-IN", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 6,
             })}
@@ -157,7 +157,7 @@ const CoinDetail = (coin: CoinMarket) => {
           </div>
           <p className="text-xl font-bold text-zinc-900 dark:text-white">
             ₹
-            {coin.low_24h?.toLocaleString("en-US", {
+            {coin.low_24h?.toLocaleString("en-IN", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 6,
             })}

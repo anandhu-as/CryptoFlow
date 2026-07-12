@@ -6,6 +6,7 @@ export const addToWatchlist = async (coin: {
   coinId: string;
   coinName: string;
   coinImage: string;
+  coinPrice: number;
   symbol: string;
 }) => {
   const { userId } = await auth();
