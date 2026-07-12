@@ -28,8 +28,6 @@ export interface CoinMarket {
 
 export type CoinMarketsResponse = CoinMarket[];
 
-
-
 //for store
 export type CoinStore = {
   coins: CoinMarketsResponse;
@@ -38,10 +36,8 @@ export type CoinStore = {
   fetchCoins: () => Promise<void>;
 };
 
-
 //chart points
 export type ChartPoint = { date: number; price: number };
-
 
 export interface CoinCardProps {
   coin: CoinMarket;
