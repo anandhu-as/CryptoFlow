@@ -4,7 +4,7 @@ import { Trash2 } from "lucide-react";
 import { removeFromWatchList } from "@/actions/watchlist";
 import { useRouter } from "next/navigation";
 
-export function RemoveWatchlistButton({ coinId }: { coinId: string }) {
+const RemoveWatchlistButton = ({ coinId }: { coinId: string }) => {
   const router = useRouter();
 
   const handleRemove = async () => {
@@ -27,3 +27,4 @@ export function RemoveWatchlistButton({ coinId }: { coinId: string }) {
     </button>
   );
 }
+export default RemoveWatchlistButton

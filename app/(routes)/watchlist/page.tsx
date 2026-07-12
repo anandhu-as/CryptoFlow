@@ -2,7 +2,8 @@ import { getWatchlist } from "@/actions/watchlist";
 import Link from "next/link";
 import { ChevronRight, Bookmark, ChevronLeft } from "lucide-react";
 import Image from "next/image";
-import { RemoveWatchlistButton } from "@/components/RemoveWatchlistButton";
+import RemoveWatchlistButton from "@/components/RemoveWatchlistButton";
+
 const Page = async () => {
   const list = await getWatchlist();
   return (
@@ -11,7 +12,7 @@ const Page = async () => {
         <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
           My Watchlist
         </h1>
-        <Link 
+        <Link
           href='/'
           className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-xl"
         >
@@ -55,7 +56,6 @@ const Page = async () => {
                   </div>
                 </div>
               </div>
-
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <Link
                   href={`/coin/${coin.coinId}`}
