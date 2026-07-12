@@ -2,7 +2,7 @@ import { SignUp, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import { AuthAside } from "@/components/common/AuthAside";
 import { clerkAppearance } from "@/lib/clerkAppearance";
 
-export default function SignUpPage() {
+const SignUpPage = () => {
   return (
     <div className="flex min-h-[calc(100vh-4rem)] flex-col bg-white text-slate-900 lg:flex-row">
 
@@ -32,3 +32,4 @@ export default function SignUpPage() {
     </div>
   );
 }
+export default SignUpPage

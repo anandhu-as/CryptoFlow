@@ -1,11 +1,9 @@
 import { SignIn, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import { AuthAside } from "@/components/common/AuthAside";
 import { clerkAppearance } from "@/lib/clerkAppearance";
-
-export default function SignInPage() {
+const SignInPage = () => {
   return (
     <div className="flex min-h-[calc(100vh-4rem)] flex-col bg-white text-slate-900 lg:flex-row">
-   
       <div className="flex flex-1 flex-col justify-center px-6 py-12 sm:px-12 lg:px-16">
         <div className="mx-auto w-full max-w-md">
           <div className="mb-8">
@@ -29,8 +27,8 @@ export default function SignInPage() {
         </div>
       </div>
 
-     
       <AuthAside />
     </div>
   );
-}
+};
+export default SignInPage;

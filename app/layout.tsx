@@ -5,7 +5,10 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Header } from "@/components/layout/Header";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
-const dancingScript = Dancing_Script({ subsets: ["latin"], variable: "--font-dancing" });
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  variable: "--font-dancing",
+});
 
 export const metadata: Metadata = {
   title: "CryptoFlow",
@@ -25,9 +28,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans selection:bg-primary/30 overflow-x-hidden w-full">
         <ClerkProvider>
           <Header />
-          <main className="flex-1 flex flex-col relative">
-            {children}
-          </main>
+          <main className="flex-1 flex flex-col relative">{children}</main>
         </ClerkProvider>
       </body>
     </html>

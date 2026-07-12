@@ -21,7 +21,6 @@ export const useWatchList = () => {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     getWatchlist();
   }, []);
 
@@ -30,7 +29,7 @@ export const useWatchList = () => {
     try {
       setLoading(true);
       const isWatchlisted = watchlist.some((item) => item.coinId === coin.id);
-      
+
       if (isWatchlisted) {
         await removeFromWatchList(coin.id);
       } else {
@@ -49,5 +48,11 @@ export const useWatchList = () => {
     }
   };
 
-  return { handleWatchList, watchlist, loading, getWatchlist ,removeFromWatchList};
+  return {
+    handleWatchList,
+    watchlist,
+    loading,
+    getWatchlist,
+    removeFromWatchList,
+  };
 };

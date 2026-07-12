@@ -84,7 +84,9 @@ const CoinChart = ({ chartData }: { chartData: ChartPoint[] }) => {
               tickLine={false}
               axisLine={false}
               tick={{ fontSize: 12, fill: "#71717a" }}
-              tickFormatter={(value) => `$${Number(value).toLocaleString("en-US")}`}
+              tickFormatter={(value) =>
+                `$${Number(value).toLocaleString("en-US")}`
+              }
             />
 
             <Charts.Tooltip
