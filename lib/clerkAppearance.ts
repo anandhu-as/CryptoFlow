@@ -1,4 +1,3 @@
-
 export const clerkAppearance = {
   variables: {
     colorPrimary: "#059669", // emerald-600
