@@ -15,9 +15,8 @@ import Image from "next/image";
 import { CoinMarket } from "@/types/types";
 import { Button } from "../ui/button";
 import { useWatchList } from "@/hooks/useWatchList";
-
 const CoinDetail = (coin: CoinMarket) => {
-  const { handleWatchList, watchlist } = useWatchList()
+  const { handleWatchList, watchlist } = useWatchList();
   const isPositive = coin.price_change_percentage_24h > 0;
   const isWatchlisted = watchlist.some((item) => item.coinId === coin.id);
   return (
@@ -69,10 +68,11 @@ const CoinDetail = (coin: CoinMarket) => {
             })}
           </div>
           <div
-            className={`flex items-center gap-1.5 mt-2 font-semibold text-sm px-3 py-1 rounded-full ${isPositive
-              ? "bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-400"
-              : "bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-400"
-              }`}
+            className={`flex items-center gap-1.5 mt-2 font-semibold text-sm px-3 py-1 rounded-full ${
+              isPositive
+                ? "bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-400"
+                : "bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-400"
+            }`}
           >
             {isPositive ? (
               <TrendingUp className="w-4 h-4" />
@@ -84,12 +84,18 @@ const CoinDetail = (coin: CoinMarket) => {
               {coin.price_change_percentage_24h?.toFixed(2)}%
             </span>
           </div>
-          <Button onClick={(event) => handleWatchList(event, coin)} className={`mt-6 rounded-full font-semibold gap-2 px-6 shadow-md hover:shadow-lg transition-all w-full md:w-auto ${
-            isWatchlisted
-              ? "bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/40 dark:hover:bg-blue-900/60 dark:text-blue-400"
-              : "bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-100 dark:text-zinc-900"
-          }`}>
-            <Bookmark className={`w-4 h-4 ${isWatchlisted ? "fill-current" : ""}`} /> {isWatchlisted ? "Remove from Watchlist" : "Add to Watchlist"}
+          <Button
+            onClick={(event) => handleWatchList(event, coin)}
+            className={`mt-6 rounded-full font-semibold gap-2 px-6 shadow-md hover:shadow-lg transition-all w-full md:w-auto ${
+              isWatchlisted
+                ? "bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/40 dark:hover:bg-blue-900/60 dark:text-blue-400"
+                : "bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-100 dark:text-zinc-900"
+            }`}
+          >
+            <Bookmark
+              className={`w-4 h-4 ${isWatchlisted ? "fill-current" : ""}`}
+            />{" "}
+            {isWatchlisted ? "Remove from Watchlist" : "Add to Watchlist"}
           </Button>
         </div>
       </div>

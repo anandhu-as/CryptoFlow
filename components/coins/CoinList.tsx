@@ -1,8 +1,6 @@
 "use client";
 import { useCoins } from "@/hooks/useCoin";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Loader } from "../common/coinCardSkelton";
-
 import { useWatchList } from "@/hooks/useWatchList";
 import CoinCard from "./CoinCard";
 export const CoinList = () => {

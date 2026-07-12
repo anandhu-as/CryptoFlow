@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { ChartPoint } from "@/types/types";
 import * as Charts from "../../lib/recharts";
@@ -7,7 +6,6 @@ import { formatChartData } from "@/utils/charts";
 const CoinChart = ({ chartData }: { chartData: ChartPoint[] }) => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
   const { formattedData, ticks } = formatChartData(chartData);
@@ -19,7 +17,6 @@ const CoinChart = ({ chartData }: { chartData: ChartPoint[] }) => {
             Price Trend
           </h2>
         </div>
-
         <span className="px-4 py-1.5 bg-gradient-to-r from-sky-500/10 to-blue-500/10 dark:from-sky-500/20 dark:to-blue-500/20 text-sky-600 dark:text-sky-300 text-xs font-bold rounded-full border border-sky-200 dark:border-sky-500/30">
           Last 7 Days
         </span>
