@@ -9,14 +9,17 @@ datasource db {
 }
 
 model Watchlist {
-  id           String   @id @default(cuid())
-  userId       String
-  coinId       String
-  coinName     String
-  coinImage    String
-  symbol       String
-  coinPrice    Float    @default(0)
-  addedAt      DateTime @default(now())
+  id             String   @id @default(cuid())
+  userId         String
+  coinId         String
+  coinName       String
+  coinImage      String
+  symbol         String
+  addedPrice     Float    // price when user added the coin
+  currentPrice   Float    
+  priceChange    Float    @default(0) 
+  addedAt        DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
   @@unique([userId, coinId])
 }

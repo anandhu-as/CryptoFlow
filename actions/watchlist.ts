@@ -6,8 +6,10 @@ export const addToWatchlist = async (coin: {
   coinId: string;
   coinName: string;
   coinImage: string;
-  coinPrice: number;
   symbol: string;
+  addedPrice: number; // snapshot at add time
+  currentPrice: number;
+  priceChange: number;
 }) => {
   const { userId } = await auth();
   if (!userId) throw new Error("user is not authenticated");
