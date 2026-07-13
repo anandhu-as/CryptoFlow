@@ -30,12 +30,10 @@ export const addToWatchlist = async (coin: {
 export const removeFromWatchList = async (coinId: string) => {
   const { userId } = await auth();
   if (!userId) throw new Error("user is not authenticated");
-  await prisma.watchlist.delete({
+  await prisma.watchlist.deleteMany({
     where: {
-      userId_coinId: {
-        userId,
-        coinId,
-      },
+      userId,
+      coinId,
     },
   });
 };
