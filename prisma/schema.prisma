@@ -15,11 +15,11 @@ model Watchlist {
   coinName       String
   coinImage      String
   symbol         String
-  addedPrice     Float    // price when user added the coin
-  currentPrice   Float    
+  addedPrice     Float    @default(0) // price when user added the coin
+  currentPrice   Float    @default(0)
   priceChange    Float    @default(0) 
   addedAt        DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  updatedAt      DateTime @default(now()) @updatedAt
 
   @@unique([userId, coinId])
 }

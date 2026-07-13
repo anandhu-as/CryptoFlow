@@ -38,7 +38,9 @@ export const useWatchList = () => {
           coinName: coin.name,
           coinImage: coin.image,
           symbol: coin.symbol,
-          coinPrice: coin.current_price,
+          addedPrice: coin.current_price,
+          currentPrice: coin.current_price,
+          priceChange: coin.price_change_24h || 0,
         });
       }
       await getWatchlist();
