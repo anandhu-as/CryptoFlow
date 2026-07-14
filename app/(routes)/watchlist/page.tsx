@@ -89,6 +89,10 @@ const Page = async () => {
           ))}
         </div>
       )}
+      <div className="mt-6 text-center text-sm text-gray-500">
+        Total coins in watchlist:{" "}
+        <span className="font-semibold ">{list.length}</span>
+      </div>
     </div>
   );
 };
