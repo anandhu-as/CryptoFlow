@@ -44,3 +44,14 @@ export interface CoinCardProps {
   isWatchlisted: boolean;
   handleWatchList: (event: React.MouseEvent, coin: CoinMarket) => void;
 }
+
+//watchlist..
+export type WatchlistCoin = {
+  coinId: string;
+  coinName: string;
+  coinImage: string;
+  symbol: string;
+  addedPrice: number;
+  currentPrice: number;
+  priceChange: number;
+};

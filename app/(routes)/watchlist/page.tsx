@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight, Bookmark, ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import RemoveWatchlistButton from "@/components/RemoveWatchlistButton";
+import CoinDifference from "@/components/coins/CoinDifference";
 
 const Page = async () => {
   const list = await getWatchlist();
@@ -72,6 +73,9 @@ const Page = async () => {
                         maximumFractionDigits: 6,
                       }) || "0.00"}
                     </span>
+
+                    <CoinDifference coin={coin} />
+
                   </div>
                 </div>
               </div>
