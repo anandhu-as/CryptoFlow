@@ -6,7 +6,7 @@ export const addToWatchlist = async (coin: {
   coinName: string;
   coinImage: string;
   symbol: string;
-  addedPrice: number; 
+  addedPrice: number;
   currentPrice: number;
   priceChange: number;
 }) => {

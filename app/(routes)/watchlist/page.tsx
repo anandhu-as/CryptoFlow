@@ -13,7 +13,7 @@ const Page = async () => {
           My Watchlist
         </h1>
         <Link
-          href='/'
+          href="/"
           className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-xl"
         >
           <ChevronLeft className="w-4 h-4" />
@@ -23,9 +23,12 @@ const Page = async () => {
       {list.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-24 px-6 text-center bg-gray-50/50 border border-dashed border-gray-200 rounded-3xl">
           <Bookmark className="w-12 h-12 text-gray-300 mb-4" />
-          <h3 className="text-xl font-semibold text-gray-900">Your watchlist is empty</h3>
+          <h3 className="text-xl font-semibold text-gray-900">
+            Your watchlist is empty
+          </h3>
           <p className="text-gray-500 mt-2 max-w-sm">
-            Keep track of your favorite cryptocurrencies. Add some coins to get started.
+            Keep track of your favorite cryptocurrencies. Add some coins to get
+            started.
           </p>
         </div>
       ) : (
@@ -88,6 +91,6 @@ const Page = async () => {
       )}
     </div>
   );
-}
+};
 
 export default Page;
