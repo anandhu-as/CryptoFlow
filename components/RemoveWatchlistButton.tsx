@@ -26,5 +26,5 @@ const RemoveWatchlistButton = ({ coinId }: { coinId: string }) => {
       <Trash2 className="w-5 h-5" />
     </button>
   );
-}
-export default RemoveWatchlistButton
+};
+export default RemoveWatchlistButton;

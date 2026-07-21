@@ -1,4 +1,3 @@
-
 export function MonkeyLogo({ className = "h-6 w-6" }: { className?: string }) {
   return (
     <svg
@@ -7,7 +6,6 @@ export function MonkeyLogo({ className = "h-6 w-6" }: { className?: string }) {
       role="img"
       aria-label="CryptoFlow monkey logo"
     >
-
       <circle cx="9" cy="30" r="8" fill="#5B3A24" />
       <circle cx="9" cy="30" r="4" fill="#D9B08C" />
       <circle cx="55" cy="30" r="8" fill="#5B3A24" />

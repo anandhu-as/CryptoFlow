@@ -5,7 +5,6 @@ import { clerkAppearance } from "@/lib/clerkAppearance";
 const SignUpPage = () => {
   return (
     <div className="flex min-h-[calc(100vh-4rem)] flex-col bg-white text-slate-900 lg:flex-row">
-
       <AuthAside className="order-last lg:order-first" />
       <div className="flex flex-1 flex-col justify-center px-6 py-12 sm:px-12 lg:px-16">
         <div className="mx-auto w-full max-w-md">
@@ -31,5 +30,5 @@ const SignUpPage = () => {
       </div>
     </div>
   );
-}
-export default SignUpPage
+};
+export default SignUpPage;

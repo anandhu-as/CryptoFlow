@@ -7,12 +7,12 @@ export function AuthAside({ className = "" }: { className?: string }) {
     >
       <div className="flex w-full max-w-lg flex-col items-center text-center">
         <MonkeyLogo className="mb-8 h-12 w-12 text-emerald-600" />
-        
+
         <h1 className="text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl lg:text-5xl lg:leading-tight">
           &quot;I&apos;m in it for the technology.
           <br className="hidden sm:block" /> And maybe a lambo.&quot;
         </h1>
-        
+
         <p className="mt-8 text-sm font-semibold tracking-widest text-emerald-600 uppercase">
           — Rule #1 of Crypto
         </p>

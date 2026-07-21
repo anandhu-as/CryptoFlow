@@ -9,7 +9,7 @@ import { fetchCoinMarkets } from "@/lib/api/markets";
 const Page = async () => {
   const dbList = await getWatchlist();
   const markets = await fetchCoinMarkets();
-  
+
   const list = dbList.map((coin) => {
     const marketCoin = markets.find((m) => m.id === coin.coinId);
     return {
