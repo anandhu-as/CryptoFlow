@@ -4,9 +4,19 @@ import { ChevronRight, Bookmark, ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import RemoveWatchlistButton from "@/components/RemoveWatchlistButton";
 import CoinDifference from "@/components/coins/CoinDifference";
+import { fetchCoinMarkets } from "@/lib/api/markets";
 
 const Page = async () => {
-  const list = await getWatchlist();
+  const dbList = await getWatchlist();
+  const markets = await fetchCoinMarkets();
+  
+  const list = dbList.map((coin) => {
+    const marketCoin = markets.find((m) => m.id === coin.coinId);
+    return {
+      ...coin,
+      currentPrice: marketCoin ? marketCoin.current_price : coin.currentPrice,
+    };
+  });
   return (
     <div className="max-w-5xl mx-auto p-6 lg:p-10">
       <div className="flex items-center justify-between mb-8">
@@ -75,7 +85,6 @@ const Page = async () => {
                     </span>
 
                     <CoinDifference coin={coin} />
-
                   </div>
                 </div>
               </div>
